@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="copy" tools:override="true">ကူးယူရန်</string>
+  <string name="terminal_more">နောက်ထပ်…</string>
+  <string name="text_to_search">ရှာဖွေမည့်စာသား</string>
+  <string name="about_option_email">အီးမေးလ်</string>
+  <string name="about_option_website">ဝဘ်ဆိုက်</string>
+  <string name="about_footer">အန်ဒရွိုက် %1$s အတွက် %2$s</string>
+  <string name="about_subtitle">အလွယ်ကူဆုံး အန်ဒရွိုက်အက်ပ် တည်ဆောက်ရေး ပလက်ဖောင်း</string>
+  <string name="msg_get_package_failed">Package အမည် ထုတ်ယူခြင်း မအောင်မြင်ပါ!</string>
+  <string name="msg_need_help">AndroidIDE အသုံးပြုစဉ် သို့မဟုတ် အက်ပ်တည်ဆောက်စဉ် ပြဿနာတစ်စုံတစ်ရာ ရှိပါက တယ်လီဂရမ်ဂရုတွင် ဝင်ရောက်အကူအညီတောင်းနိုင်ပါသည်။\n\nကျွန်ုပ်တို့၏ အီးမေးလ်သို့လည်း အကြံပြုချက်များ ပေးပို့နိုင်ပါသည်။</string>
+  <string name="need_help">အကူအညီ လိုအပ်ပါသလား?</string>
+  <string name="ide_preferences">IDE ဆက်တင်များ</string>
+  <string name="discussions_on_telegram">တယ်လီဂရမ်တွင် ဆွေးနွေးရန်</string>
+  <string name="official_tg_channel">တရားဝင် တယ်လီဂရမ်ချန်နယ်</string>
+  <string name="msg_empty_view">အချက်အလက်မရှိပါ</string>
+  <string name="title_terminal">တာမီနယ်</string>
+  <string name="reset">ပြန်လည်သတ်မှတ်ရန်</string>
+  <string name="app_logs">အက်ပ် မှတ်တမ်းများ (Logs)</string>
+  <string name="ide_logs">IDE မှတ်တမ်းများ (Logs)</string>
+</resources>
