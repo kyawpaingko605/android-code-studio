@@ -44,7 +44,7 @@ composite-javaCompiler = { module = "com.tom.rv2ide.build:java-compiler" }
 composite-javac = { module = "com.tom.rv2ide.build:javac" }
 composite-jdkCompiler = { module = "com.tom.rv2ide.build:jdk-compiler" }
 composite-jdkJdeps = { module = "com.tom.rv2ide.build:jdk-jdeps" }
-composite-javapoet = { module = "com.tom.rv2ide.build:javapoet" }
+composite-javapoet = { module = "com.squareup:javapoet", version = "1.13.0" }
 composite-jaxp = { module = "com.tom.rv2ide.build:jaxp" }
 composite-jdt = { module = "com.tom.rv2ide.build:jdt" }
 composite-layoutlibApi = { module = "com.tom.rv2ide.build:layoutlib-api" }
@@ -123,7 +123,6 @@ androidx-tracing-ktx = { module = "androidx.tracing:tracing-ktx", version = "1.2
 androidx-viewpager = { module = "androidx.viewpager:viewpager", version = "1.0.0" }
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version = "1.0.0" }
 #noinspection GradleDependency
-androidx-window-v1alpha9 = { module = "androidx.window:window", version = "1.0.0-alpha09" }
 androidx-window-v1alpha9 = { module = "androidx.window:window", version = "1.0.0-alpha09" }
 androidx-work = { module = "androidx.work:work-runtime", version.ref = "androidx-work" }
 androidx-work-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-work" }
