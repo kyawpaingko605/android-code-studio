@@ -29,6 +29,7 @@ import openjdk.tools.javac.main.Main.Result;
 import openjdk.tools.sjavac.Log;
 import openjdk.tools.sjavac.server.Sjavac;
 
+import java.io.Writer;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -38,10 +39,10 @@ import java.util.concurrent.TimeUnit;
  * An sjavac implementation that limits the number of concurrent calls by
  * wrapping invocations in Callables and delegating them to a FixedThreadPool.
  *
- *  <p><b>This is NOT part of any supported API.
- *  If you write code that depends on this, you do so at your own risk.
- *  This code and its internal interfaces are subject to change or
- *  deletion without notice.</b>
+ * <p><b>This is NOT part of any supported API.
+ * If you write code that depends on this, you do so at your own risk.
+ * This code and its internal interfaces are subject to change or
+ * deletion without notice.</b>
  */
 public class PooledSjavac implements Sjavac {
 
@@ -55,12 +56,12 @@ public class PooledSjavac implements Sjavac {
     }
 
     @Override
-    public Result compile(String[] args) {
+    public Result compile(String[] args, Writer out) {
         Log log = Log.get();
         try {
             return pool.submit(() -> {
                 Log.setLogForCurrentThread(log);
-                return delegate.compile(args);
+                return delegate.compile(args, out);
             }).get();
         } catch (Exception e) {
             e.printStackTrace();
