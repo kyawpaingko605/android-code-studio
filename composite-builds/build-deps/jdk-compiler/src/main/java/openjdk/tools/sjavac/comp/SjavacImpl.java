@@ -28,6 +28,7 @@ package openjdk.tools.sjavac.comp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -62,15 +63,15 @@ import jdkx.tools.JavaFileManager;
  * The sjavac implementation that interacts with javac and performs the actual
  * compilation.
  *
- *  <p><b>This is NOT part of any supported API.
- *  If you write code that depends on this, you do so at your own risk.
- *  This code and its internal interfaces are subject to change or
- *  deletion without notice.</b>
+ * <p><b>This is NOT part of any supported API.
+ * If you write code that depends on this, you do so at your own risk.
+ * This code and its internal interfaces are subject to change or
+ * deletion without notice.</b>
  */
 public class SjavacImpl implements Sjavac {
 
     @Override
-    public Result compile(String[] args) {
+    public Result compile(String[] args, Writer out) {
         Options options;
         try {
             options = Options.parseArgs(args);
@@ -105,7 +106,7 @@ public class SjavacImpl implements Sjavac {
             // Prepare context. Direct logging to our byte array stream.
             Context context = new Context();
             StringWriter strWriter = new StringWriter();
-            PrintWriter printWriter = new PrintWriter(strWriter);
+            PrintWriter printWriter = (out != null) ? new PrintWriter(out) : new PrintWriter(strWriter);
             openjdk.tools.javac.util.Log.preRegister(context, printWriter);
             JavacFileManager.preRegister(context);
 
@@ -118,7 +119,9 @@ public class SjavacImpl implements Sjavac {
 
             // Process compiler output (which is always errors)
             printWriter.flush();
-            Util.getLines(strWriter.toString()).forEach(Log::error);
+            if (out == null) {
+                Util.getLines(strWriter.toString()).forEach(Log::error);
+            }
 
             // Clean up
             JavaFileManager fileManager = context.get(JavaFileManager.class);
